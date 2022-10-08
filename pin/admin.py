@@ -8,6 +8,7 @@ class PinAdmin(admin.ModelAdmin):
     model = Pin
     list_display = ['pin', 'status', 'caller', 'phone', 'created_at', 'updated_at']
     search_fields = ['pin',]  
+    list_per_page = 20
     list_filter = ('status',)
     changelist_actions = ('Generate Pins', )
 

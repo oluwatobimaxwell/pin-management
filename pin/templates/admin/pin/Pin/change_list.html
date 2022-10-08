@@ -11,3 +11,11 @@
     
 
 {% endblock %}
+<script>
+    const addButton = document.querySelector(".addlink");
+    addButton.innerHTML = "Generate PINS"
+    addButton.onclick = (e) => {
+        e.preventDefault();
+        window.location = "/generate"
+    } 
+</script>

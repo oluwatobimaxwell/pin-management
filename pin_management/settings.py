@@ -34,6 +34,7 @@ CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com', 'http://
 # Application definition
 
 INSTALLED_APPS = [
+    "clearcache",
     'baton',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pin',
-    
+    'pin',   
 ]
 
 MIDDLEWARE = [

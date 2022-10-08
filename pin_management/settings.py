@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-t$+cw(my5z0%+g&cvc$cd7c-=2j%zdz_qkxg_6859g8p^nd%bv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://asesscare-pin-management.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
+CORS_ALLOW_HEADERS = ['*']
+CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com/', 'http://127.0.0.1:8000']
 
 
 # Application definition
@@ -131,7 +133,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BATON = {
     'SITE_HEADER' : 'PIN MANAGEMENT',
     'SITE_TITLE' : 'PIN MANAGEMENT',
-    'INDEX_TITLE' : 'Site Admnistration'
+    'INDEX_TITLE' : 'Assess Pin System',
+    'COPYRIGHT': 'copyright © 2022 <a href="https://www.theboolean.tech">The Boolean Tech</a>', 
+    'POWERED_BY': '<a href="https://www.theboolean.tech">The Boolean Tech',
 }
 
 

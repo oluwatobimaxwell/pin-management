@@ -9,6 +9,7 @@ class PinAdmin(admin.ModelAdmin):
     list_display = ['pin', 'status', 'caller', 'phone', 'created_at', 'updated_at']
     search_fields = ['pin',]  
     list_filter = ('status',)
+    changelist_actions = ('Generate Pins', )
 
     def caller(self, pin):
         return pin.caller.name if (pin.caller != None) else "-"

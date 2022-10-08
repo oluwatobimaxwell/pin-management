@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,11 +77,11 @@ WSGI_APPLICATION = 'pin_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+POSTGRES = "postgres://ohbnfvemeyqpzk:237b8a5e8c2085c1f4ccb3fc1552bc197e8b3322ef3a6f3024355514971dfbf5@ec2-18-209-78-11.compute-1.amazonaws.com:5432/d1anur6j4nqn82"
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(POSTGRES , conn_max_age=600),
+
 }
 
 

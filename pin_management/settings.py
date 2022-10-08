@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-t$+cw(my5z0%+g&cvc$cd7c-=2j%zdz_qkxg_6859g8p^nd%bv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://asesscare-pin-management.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
+CORS_ALLOW_HEADERS = ['*']
+CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com/']
 
 
 # Application definition

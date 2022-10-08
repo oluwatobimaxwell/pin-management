@@ -1,9 +1,9 @@
 import random
 # from .models import Pin
-def generate_pin(amount):
-    for i in range(0, amount):
+def generator(amount):
+    for i in range(0, int(amount)):
         pin = random.randint(100000, 999999)
-        return(pin)
+        print(pin)
 
 
 # def get_amount():

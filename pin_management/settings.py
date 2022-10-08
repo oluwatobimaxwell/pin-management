@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_HEADERS = ['*']
-CSRF_TRUSTED_ORIGINS=["https://asesscare-pin-management.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com/', 'http://127.0.0.1:8000']
 
 
 # Application definition
@@ -133,7 +133,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BATON = {
     'SITE_HEADER' : 'PIN MANAGEMENT',
     'SITE_TITLE' : 'PIN MANAGEMENT',
-    'INDEX_TITLE' : 'Site Admnistration'
+    'INDEX_TITLE' : 'Assess Pin System',
+    'COPYRIGHT': 'copyright © 2022 <a href="https://www.theboolean.tech">The Boolean Tech</a>', 
+    'POWERED_BY': '<a href="https://www.theboolean.tech">The Boolean Tech',
 }
 
 

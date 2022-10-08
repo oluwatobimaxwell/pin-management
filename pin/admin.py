@@ -10,6 +10,7 @@ class PinAdmin(admin.ModelAdmin):
     search_fields = ['pin',]  
     list_per_page = 20
     list_filter = ('status',)
+    changelist_actions = ('Generate Pins', )
 
     def caller(self, pin):
         return pin.caller.name if (pin.caller != None) else "-"

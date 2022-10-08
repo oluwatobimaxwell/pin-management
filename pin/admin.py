@@ -11,6 +11,7 @@ class PinAdmin(admin.ModelAdmin):
     list_per_page = 20
     list_filter = ('status',)
     changelist_actions = ('Generate Pins', )
+    change_list_template = "pin/templates/admin/pin/Pin/change_list.html"
 
     def caller(self, pin):
         return pin.caller.name if (pin.caller != None) else "-"

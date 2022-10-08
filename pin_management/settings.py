@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_HEADERS = ['*']
-CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS=["https://asesscare-pin-management.herokuapp.com"]
 
 
 # Application definition

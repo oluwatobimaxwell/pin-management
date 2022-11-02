@@ -25,11 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t$+cw(my5z0%+g&cvc$cd7c-=2j%zdz_qkxg_6859g8p^nd%bv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_HEADERS = ['*']
-CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com', 'http://127.0.0.1:8000', 'https://pin-managment.herokuapp.com']
+CSRF_TRUSTED_ORIGINS=['https://asesscare-pin-management.herokuapp.com', 'http://localhost:8000', 'https://pin-managment.herokuapp.com']
 
 
 # Application definition

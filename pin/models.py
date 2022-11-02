@@ -32,15 +32,24 @@ STATUS = (
     ("valid", "UNUSED"),
     ("invalid", "USED")
 )
+
+VALUE_CHOICES = (
+    (100, "NGN 100"),
+    (200, "NGN 200"),
+    (300, "NGN 300"),
+    (400, "NGN 400"),
+    (500, "NGN 500"),
+)
+
 class Pin(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    # id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     secret = models.CharField(max_length=200, null=True, blank=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
     status=models.CharField(max_length=20, choices=STATUS, default="valid")
     pin = models.IntegerField( blank=True, null=True, editable=False)
     caller = models.ForeignKey(Caller, on_delete=models.CASCADE, null=True, blank=True)
-
+    value = models.IntegerField(default=100, blank=True, null=True, choices=VALUE_CHOICES)
     def __str__(self):
         return str(self.pin)
 

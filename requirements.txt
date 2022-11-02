@@ -1,5 +1,4 @@
-﻿backports.zoneinfo==0.2.1
-asgiref==3.5.2
+﻿asgiref==3.5.2
 dj-database-url==1.0.0
 Django==4.1.1
 django-baton==2.4.1

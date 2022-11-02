@@ -3,8 +3,11 @@
 
     {{ block.super }}
      {% if has_add_permission %}
-     <li>
+    <li>
         <a href="/generate" class="grp-state-focus addlink">Generate Pin</a>
+    </li>
+    <li>
+        <a href="/print-pins?pinIds={{pinIds}}" class="grp-state-focus addlink">Print PINs</a>
     </li>
 
      {% endif %}

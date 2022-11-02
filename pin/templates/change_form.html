@@ -6,14 +6,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Pin</title>
+    <style>
+        body{
+            background-color: #f1f1f1;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            width: 450px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2em;
+        }
+        .card h1{
+            font-size: 50px;
+            font-weight: 500;
+            color: #333;
+        }
+        .card p{
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+        }
+        .card button{
+            width: 100%;
+            height: 45px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* 
+            add style for form and inputs
+        */
+        form{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        form input, form select{
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-bottom: 1px solid #333;
+            outline: none;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        form input[type="submit"]{
+            width: 100%;
+            height: 45px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+
+    </style>
 </head>
 <body>
-    <h1>Pin Generator</h1>
-    <form action="" method="get">
-        {% csrf_token %}
-    <p><h3>Amount:<input type="text" id="generate" name="amount" placeholder="no of pins to generate"></p></h3>
-    <button>Generate</button>
-</form>
+        
+        <div class="container">
+            <div class="card">
+                <h1>Pin Generator</h1>
+                <form action="/generate-create/" method="POST">
+                    {% csrf_token %}
+                    <!-- Generate PINs with number of PIN and Value of each pin -->
+                    <p>Number of PINs</p>
+                    <input type="number" name="amount" id="number_of_pins" placeholder="Enter number of pins">
+                    <p>Value of each pin</p>
+                    <!-- Value should be a drop down list of 100, 200, 300, 400, 500 -->
+                    <select name="value" id="value_of_each_pin">
+                        <option value="100"> NGN 100 </option>
+                        <option value="200"> NGN 200 </option>
+                        <option value="300"> NGN 300 </option>
+                        <option value="400"> NGN 400 </option>
+                        <option value="500"> NGN 500 </option>
+                    </select>
+                    <button type="submit">Generate</button>
+                </form>
+            </div>
+        </div>
 </body>
-
 </html> 

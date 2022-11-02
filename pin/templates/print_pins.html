@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Pin</title>
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pin {
+            border: 1px solid #333;
+            padding: 1.5em;
+        }
+        .pin h3 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin: 0;
+            margin-bottom: 0.25em;
+        }
+        .date {
+            font-size: 0.8em;
+        }
+        .pin p {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+            margin-bottom: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        small {
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+        span {
+            font-size: 0.8em;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            display: block;
+            margin-top: 0.5em;
+            padding-top: 0.5em;
+            border-top: 1px dashed #333;
+        }
+        button{
+            width: 100%;
+            height: 45px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-to-pins {
+            width: 100%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2em;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Generated PINs</h1>
+    <div class="back-to-pins">
+        <a href="/admin/pin/pin/">Go to PINs</a>
+    </div>
+    <div class="container">
+        <div class="generated-pins grid">
+            {% for pin in pins %}
+            <div class="pin">
+                <h3>{{ pin.pin }}</h3>
+                <p>NGN {{ pin.value }}</p>
+                <!-- <p class="date"><small>Created at:</small><br/>{{ pin.created_at }}</p> -->
+                <p class="phone">Tell: {{ phone }}</p>
+                <span> @ASESS Care </span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 

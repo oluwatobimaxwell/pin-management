@@ -94,7 +94,7 @@
                 <p>NGN {{ pin.value }}</p>
                 <!-- <p class="date"><small>Created at:</small><br/>{{ pin.created_at }}</p> -->
                 <p class="phone">Tell: {{ phone }}</p>
-                <span> @ASESS Care </span>
+          <span>  {% load static %} <img src="{% static "pin/img/logo.jpg" %}" alt="assessLogo" height="50"/></span>
             </div>
             {% endfor %}
         </div>

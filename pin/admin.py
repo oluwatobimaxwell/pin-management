@@ -3,7 +3,7 @@ from .models import Pin, Caller, Doctor
 
 class PinAdmin(admin.ModelAdmin):
     model = Pin
-    list_display = ['pin', 'value', 'location', 'status', 'caller', 'phone', 'created_at', 'updated_at']
+    list_display = ['pin', 'value', 'location', 'batch', 'status', 'caller', 'phone', 'created_at', 'updated_at']
     search_fields = ['pin',]  
     list_per_page = 20
     list_filter = ('status',)

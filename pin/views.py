@@ -39,5 +39,5 @@ def generate_pin(request):
 def print_pins(request):
     pinIds = request.GET.get('pinIds')
     pins = Pin.objects.filter(id__in=pinIds.split(','), status='valid')
-    phone = "0700-ASESS-000"
+    phone = "07040199716"
     return render(request, 'print_pins.html', {'pins': pins, 'phone': phone })

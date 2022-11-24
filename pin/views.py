@@ -18,13 +18,17 @@ def generate_pin(request):
         amount = data.get('amount', 5)
         value = int(data.get('value', 100))
         location = data.get('location')
+        last_item = Pin.objects.last()
+        batch = 1
+        if last_item:
+            batch = last_item.batch + 1
         if amount:
             pinIds = []
             for i in range(int(amount)):
                 pin = random.randint(100000, 999999)
                 hash = hashlib.md5(str(pin).encode('utf-8')).hexdigest()
                 hash = base64.b32encode(bytearray(settings.SECRET_KEY + hash, 'ascii')).decode('utf-8')
-                new_pin = Pin(pin=pin, secret=hash, value=value, location=location)
+                new_pin = Pin(pin=pin, secret=hash, value=value, location=location, batch=batch)
                 new_pin.save()
                 pinIds.append(new_pin.id)
             return redirect('/print-pins/?pinIds=' + ','.join(map(str, pinIds)))

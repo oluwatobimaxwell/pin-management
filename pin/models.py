@@ -50,7 +50,7 @@ class Pin(models.Model):
     pin = models.IntegerField( blank=True, null=True, editable=False)
     caller = models.ForeignKey(Caller, on_delete=models.CASCADE, null=True, blank=True)
     location = models.CharField(max_length=256, null=True, blank=True, editable=False)
-    batch = models.CharField(max_length=256, null=True, blank=True, editable=False )
+    batch = models.IntegerField(default=0, null=True, blank=True, editable=False)
     value = models.IntegerField(default=100, blank=True, null=True, choices=VALUE_CHOICES)
     def __str__(self):
         return str(self.pin)

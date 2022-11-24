@@ -18,7 +18,10 @@ def generate_pin(request):
         amount = data.get('amount', 5)
         value = int(data.get('value', 100))
         location = data.get('location')
-        batch = data.get('batch')
+        last_item = Pin.objects.last()
+        batch = 1
+        if last_item:
+            batch = last_item.batch + 1
         if amount:
             pinIds = []
             for i in range(int(amount)):

@@ -7,7 +7,7 @@ class PinAdmin(admin.ModelAdmin):
     search_fields = ['pin',]
     list_max_show_all = 10000
     list_per_page = 20
-    list_filter = ('status',)
+    list_filter = ('status','batch')
     # changelist_actions = ('Generate Pins', )
     # Change template data for the changelist view
     change_list_template = "admin/pin/Pin/change_list.html"

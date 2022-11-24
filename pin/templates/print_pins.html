@@ -83,10 +83,11 @@
     </style>
 </head>
 <body>
-    <h1>Generated PINs</h1>
+    {% comment %} <h1>Generated PINs</h1>
     <div class="back-to-pins">
         <a href="/admin/pin/pin/">Go to PINs</a>
-    </div>
+    </div> {% endcomment %}
+<a href="/admin/pin/pin/">Go to PINs</a>
     <div class="container">
         <div class="generated-pins grid">
             {% for pin in pins %}

@@ -4,9 +4,10 @@ from .models import Pin, Caller, Doctor
 class PinAdmin(admin.ModelAdmin):
     model = Pin
     list_display = ['pin', 'value', 'location', 'batch', 'status', 'caller', 'phone', 'created_at', 'updated_at']
-    search_fields = ['pin',]  
+    search_fields = ['pin',]
+    list_max_show_all = 10000
     list_per_page = 20
-    list_filter = ('status',)
+    list_filter = ('status','batch')
     # changelist_actions = ('Generate Pins', )
     # Change template data for the changelist view
     change_list_template = "admin/pin/Pin/change_list.html"

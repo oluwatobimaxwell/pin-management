@@ -54,6 +54,10 @@ class Pin(models.Model):
     value = models.IntegerField(default=100, blank=True, null=True, choices=VALUE_CHOICES)
     def __str__(self):
         return str(self.pin)
+    
+    def save(self, *args, **kwargs):
+        if self.status == "valid":
+            super(Pin, self).save(*args, **kwargs)
 
     
 

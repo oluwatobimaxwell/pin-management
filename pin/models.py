@@ -56,8 +56,9 @@ class Pin(models.Model):
         return str(self.pin)
     
     def save(self, *args, **kwargs):
-        if self.status == "valid":
-            super(Pin, self).save(*args, **kwargs)
+        if self.status == "invalid":
+            self.status = "invalid"
+        super(Pin, self).save(*args, **kwargs)
 
     
 

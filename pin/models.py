@@ -56,7 +56,7 @@ class Pin(models.Model):
         return str(self.pin)
     
     def save(self, *args, **kwargs):
-        if self._state.adding == False and self.class_.objects.get(pk=self.pk).status == 'invalid':
+        if self._state.adding == False and Pin.objects.get(pk=self.pk).status == 'invalid':
             raise Exception(f'{self.pin} has already been used!')
         return super().save(*args, **kwargs)
     

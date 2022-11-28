@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib import messages
+from django.core.exceptions import ValidationError
 import uuid
 
 # Create your models here.
@@ -44,6 +44,7 @@ VALUE_CHOICES = (
 
 class Pin(models.Model):
     # id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    is_cleaned = False
     secret = models.CharField(max_length=200, null=True, blank=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -56,11 +57,17 @@ class Pin(models.Model):
     def __str__(self):
         return str(self.pin)
     
-    def save(self, request, *args, **kwargs,):
+    def clean(self):
+        self.is_cleaned = True
         if self._state.adding == False and Pin.objects.get(pk=self.pk).status == 'invalid':
-            messages.add_message(request, messages.INFO, f'{self.pin} has already been used!')
-            # raise Exception(f'{self.pin} has already been used!')
-            super(Pin, self).save(*args, **kwargs)
+            raise ValidationError(f'{self.pin} has already been used!')
+        super(Pin, self).clean()
+
+    
+    def save(self, *args, **kwargs,):
+        if not self.is_cleaned:
+            self.full_clean()
+        super(Pin, self).save(*args, **kwargs)
     
 
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import messages
 import uuid
 
 # Create your models here.
@@ -57,7 +58,8 @@ class Pin(models.Model):
     
     def save(self, *args, **kwargs):
         if self._state.adding == False and Pin.objects.get(pk=self.pk).status == 'invalid':
-            raise Exception(f'{self.pin} has already been used!')
+            messages.add_message(messages.INFO, f'{self.pin} has already been used!')
+            # raise Exception(f'{self.pin} has already been used!')
         return super().save(*args, **kwargs)
     
 

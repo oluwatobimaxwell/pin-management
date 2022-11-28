@@ -56,9 +56,9 @@ class Pin(models.Model):
     def __str__(self):
         return str(self.pin)
     
-    def save(self, *args, **kwargs):
+    def save(request, self, *args, **kwargs):
         if self._state.adding == False and Pin.objects.get(pk=self.pk).status == 'invalid':
-            messages.add_message(messages.INFO, f'{self.pin} has already been used!')
+            messages.add_message(request, messages.INFO, f'{self.pin} has already been used!')
             # raise Exception(f'{self.pin} has already been used!')
         return super().save(*args, **kwargs)
     

@@ -18,7 +18,7 @@ class PinAdmin(admin.ModelAdmin):
     model = Pin
     list_display = ['pin', 'value', 'location', 'batch', 'status', 'caller', 'phone', 'created_at', 'updated_at']
     search_fields = ['pin',]
-    list_max_show_all = 10000
+    list_max_show_all = 100000
     list_per_page = 20
     list_filter = ('status','batch')
     # changelist_actions = ('Generate Pins', )

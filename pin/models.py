@@ -22,6 +22,7 @@ GENDER = (
 class Caller(models.Model):
     # user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length = 200, blank=True, null=True)
+    dob = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=20, null=True, choices=GENDER)
     education = models.CharField(max_length=200, blank=True, null=True)
     symptoms = models.TextField(blank=True, null=True)

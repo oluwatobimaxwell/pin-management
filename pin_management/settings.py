@@ -134,9 +134,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 BATON = {
-    'SITE_HEADER' : 'Medical Service Call Cards',
+    'SITE_HEADER' : '''Medical Service
+                        <p>Call Cards</p>''',
     'SITE_TITLE' : 'Medical Service Call Cards',
-    'INDEX_TITLE' : 'Assess Pin System',
+    'INDEX_TITLE' : 'Medical Service Call Cards',
     'COPYRIGHT': 'copyright © 2022 <a href="https://www.theboolean.tech">The Boolean Tech</a>', 
     'POWERED_BY': '<a href="https://www.theboolean.tech">The Boolean Tech',
 }

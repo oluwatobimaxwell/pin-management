@@ -4,10 +4,10 @@ from .models import Pin, Caller, Doctor
 
 class CallerAdmin(admin.ModelAdmin):
     model = Caller
-    list_display = ['name','gender', 'address','occupation', 'education', 'symptoms', 'management']
-    search_fields = ['name']
+    list_display = ['name','gender', 'dob', 'address','occupation', 'education', 'symptoms', 'management']
+    search_fields = ['name' ,'address','occupation', 'education', 'symptoms', 'management']
     list_per_page = 20
-    list_filter = ('gender',)
+    list_filter = ('gender','dob', 'address','occupation', 'education', 'symptoms', 'management')
 
 
 

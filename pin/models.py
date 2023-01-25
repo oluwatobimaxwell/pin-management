@@ -14,9 +14,19 @@ class Doctor(models.Model):
         return str(self.name)
 
 
+GENDER = (
+    ("MALE", "MALE"),
+    ("FEMALE", "FEMALE")
+)
+
 class Caller(models.Model):
     # user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length = 200, blank=True, null=True)
+    gender = models.CharField(max_length=20, null=True, choices=GENDER)
+    education = models.CharField(max_length=200, blank=True, null=True)
+    symptoms = models.TextField(blank=True, null=True)
+    management = models.CharField(max_length=200, blank=True, null=True)
+    occupation = models.CharField(max_length=200, blank=True, null=True)
     phone = models.CharField(max_length = 100, blank=True, null=True)
     email = models.EmailField(max_length=500, blank=True, null=True)
     address = models.CharField(max_length=200, blank=True, null=True)

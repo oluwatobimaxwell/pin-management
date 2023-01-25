@@ -1,11 +1,24 @@
 from django.contrib import admin
 from .models import Pin, Caller, Doctor
 
+
+class CallerAdmin(admin.ModelAdmin):
+    model = Caller
+    list_display = ['name','gender', 'address','occupation', 'education', 'symptoms', 'management']
+    search_fields = ['name']
+    list_per_page = 20
+    list_filter = ('gender',)
+
+
+
+
+
+
 class PinAdmin(admin.ModelAdmin):
     model = Pin
     list_display = ['pin', 'value', 'location', 'batch', 'status', 'caller', 'phone', 'created_at', 'updated_at']
     search_fields = ['pin',]
-    list_max_show_all = 10000
+    list_max_show_all = 100000
     list_per_page = 20
     list_filter = ('status','batch')
     # changelist_actions = ('Generate Pins', )
@@ -30,7 +43,7 @@ class PinAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Pin, PinAdmin)
-admin.site.register(Caller)
+admin.site.register(Caller, CallerAdmin)
 admin.site.register(Doctor)
 
 

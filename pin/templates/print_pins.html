@@ -20,7 +20,7 @@
             align-items: center;
         }
         .pin h3 {
-            font-size: 3.5em;
+            font-size: 2.0em;
             font-weight: 900;
             margin: 0;
             margin-bottom: 0.25em;
@@ -41,8 +41,9 @@
         .pin {
             border: 1px solid #333;
             padding: 1.5em;
-            width: 33.3%;
+            width: 25%;
             box-sizing: border-box;
+            height: 200px
         }
         small {
             font-size: 0.7em;
@@ -96,7 +97,7 @@
                 <p>NGN {{ pin.value }}</p>
                 <!-- <p class="date"><small>Created at:</small><br/>{{ pin.created_at }}</p> -->
                 <p class="phone">Tell: {{ phone }}</p>
-          <span>  {% load static %} <img src="{% static "pin/img/logo.jpg" %}" alt="assessLogo" height="50" width="200"/></span>
+          <span>  {% load static %} <img src="{% static "pin/img/logo.jpg" %}" alt="assessLogo" height="37" width="140"/></span>
             </div>
             {% endfor %}
         </div>
